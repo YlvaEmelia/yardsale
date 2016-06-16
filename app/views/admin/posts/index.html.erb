@@ -1,0 +1,58 @@
+<%= stylesheet_link_tag "show_list.css" %>
+
+<div id="center_box">
+
+	<div id="header_box">
+		<p id="notice"><%= notice %></p>
+		<h1>All items Admin</h1>
+		<p><b>Bold title</b> means tjingad.</p>
+		<p class="footer">
+			<%= link_to 'New Post', new_admin_post_path %> | 
+			<%= link_to 'Public view', posts_path %> 
+				<%= form_tag import_admin_posts_path, multipart: true do %>
+					<%= file_field_tag :file %>
+					<%= submit_tag "Import" %> 
+				<% end %>
+		</p>
+	</div>
+
+	<div id="list_box">
+		<table width="500" border="0" cellpadding="5">
+			<tr>
+				<th align="left">Title</th>
+				<th align="right" class="border">Price</th>
+				<th colspan="3">Action</th>
+			</tr>
+
+			<% @posts.sort { |a,b| a.title <=> b.title }.each do |post| %>
+				<tr>
+					<% if post.tjing %>
+						<td><b><%= post.title %></b></td>
+					<% else %>
+						<td><%= post.title %></td>
+					<% end %>
+					<td align="right" class="border">$<%= post.price %></td>
+			
+					<td class="action" ><%= link_to 'Show', [:admin, post] %></td>
+					<td><%= link_to 'Edit', edit_admin_post_path(post) %></td>
+					<td class="action2" >
+						<%= link_to 'Destroy', [:admin, post], method: :delete, 
+						data: { confirm: 'Are you sure?' } %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+		
+	<div id="footer_box">
+		<p class="footer">
+			<%= link_to 'New Post', new_admin_post_path %> | 
+			<%= link_to 'Public view', posts_path %>
+		</p>
+	</div>
+
+</div>
+
+
+
+

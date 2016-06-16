@@ -1,0 +1,54 @@
+<%= stylesheet_link_tag "form.css" %>
+
+<%= form_for([:admin, @post]) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+    
+  <p>
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </p>
+    
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body, size: "75x12" %>
+  </p>
+  
+  <p>
+    <%= f.label "tjingad" %> <br>
+    <%= f.check_box :tjing, include_hidden: true %>   
+  </p>
+	
+  <p>
+	  <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+	  <%= f.text_field :tag_list %>
+  </p>
+	
+	<p>    
+    <%= f.text_field :ikea_url, hidden:true, value:"IKEA" %>
+	</p>
+	
+	<p>
+    <%= f.label :images_files %><br>
+    <%= f.attachment_field :images_files, multiple: true, presigned: true, direct: true %>
+  </p>
+
+	
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

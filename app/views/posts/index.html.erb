@@ -1,0 +1,110 @@
+<%= stylesheet_link_tag "show_flow.css" %>
+
+<div id="center_box">
+
+	<div id="header_box">
+		<p style="font-size: 10px; text-align: right;"><%= link_to "Admin", admin_posts_path %></p>
+	</div>
+
+	<div id="intro_box">
+		<p>
+			Here can you see all items we want to sell.
+		</p>
+		<p>
+			If you are interested please contact us by clicking on Contact at the item page
+			or send an email to 
+			<%= mail_to "ylvaemelia@gmail.com", "ylvaemelia@gmail.com", :subject => "Yard sale" %>
+		</p>
+		<p>
+			Items indicated in grey are taken by someone but not yet sold.
+			They might come back and you can contact us to be on a waiting list. 
+			If the item has disappeared it is sold. Last sale is <i>date</i>.
+		</p>
+		<hr>
+		<table style="width:100%; table-layout:fixed;">
+		  <tr>
+				<% tag_cloud Tag.counts.sort { |x, y| x.name <=> y.name } do |tag| %>
+				<td style="text-align: center;">
+					<%= link_to tag.name, tag_path(tag.name) %> 
+					<br>(<%= tag.count %>)</td>
+				<% end %>
+				<td style="text-align: center;">
+					<%= link_to 'All items', posts_path %></td>
+		  </tr>
+		</table>
+
+	</div>
+
+	<div id="list_box">
+		<% @posts.sort { |a,b| a.title <=> b.title }.each do |post| %>
+
+		<% if post.tjing %>
+		<div id="article_box" style="background-color: #e5e5e5;">
+			<% else %>
+			<div id="article_box">
+				<% end %>
+		
+				<div id="picture_box">
+					<% if post.images.empty? %>
+						<%= image_tag("no_image.png", :height => "200", :crop => :fill, :alt => 							"No image available") %>
+					<% else %>
+						<%= attachment_image_tag(post.images.first, :file, :limit, 268, 200) %>
+					<% end %>
+				</div>
+		
+				<% if post.tjing %>
+				<div id="title_box" style="background-color: #e5e5e5;">
+					<% else %>
+					<div id="title_box">
+						<% end %>
+
+						<h2><%= post.title %><br></h2>
+					</div>
+					<% if post.tjing %>
+					<div id="price_box" style="background-color: #e5e5e5;">
+						<% else %>
+						<div id="price_box">
+							<% end %>		
+							<h2 class="price">$<%= post.price %><br></h2>
+						</div>
+				
+						<% if post.tjing %>
+						<div id="text_box" style="background-color: #e5e5e5;">
+							<% else %>
+							<div id="text_box">
+								<% end %>	
+								<p><%= simple_format(post.body) %></p>
+							</div>
+
+							<% if post.tjing %>
+							<div id="footer_box" style="background-color: #e5e5e5;">
+								<% else %>
+								<div id="footer_box">
+									<% end %>	
+									<p class="footer">
+										<%= link_to 'Show', post %> | 
+										
+										<% if post.ikea_url == "IKEA" %>
+											<strike>IKEA</strike> | 
+										<% else %>
+											<%= link_to 'IKEA', post.ikea_url,
+												:target => '_blank'%> | 
+										<% end %>
+										
+										Tags:
+										<% post.tags.each do |tag| %>
+										<%= link_to tag.name, tag_path(tag.name) %>
+										<% end %>
+									</p>
+								</div>
+		
+							</div>
+							<% end %>
+
+						</div>
+
+					</div>
+
+
+
+

@@ -1,0 +1,87 @@
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: justify;
+}
+.footer{
+	font-size: 12px;
+}
+
+h1 {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 24px;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+.price { text-align: right; }
+
+a {
+	color: 	#4c39a1;
+	text-decoration: none; 
+	font-weight: bold;
+}
+
+
+#center_box {
+	width: 807px;
+	margin: 20px auto 20px auto;
+	border-top: 10px solid #FFFFFF;
+}
+
+#article_box {
+width: 765px;
+min-height: 355px;
+padding: 20px;
+border: 1px solid #606060;
+background-color: #c8dae7;
+}
+
+#title_box {
+width: 200px;
+padding: 5px 5px 5px 15px;
+margin-top: 5px;
+/*border-left: 1px solid #606060;
+border-top: 1px solid #606060;*/
+background-color: #ffffff;
+float: left;
+}
+
+#price_box {
+width: 158px;
+padding: 5px 15px 5px 5px;
+margin-top: 5px;
+/*border-right: 1px solid #606060;
+border-top: 1px solid #606060;*/
+background-color: #ffffff;
+float: left;
+}
+
+#picture_box {
+width: 338px;
+height: 338px;
+margin: 5px 20px 5px 5px;
+/*border: 1px solid #606060;*/
+background-color: #c8dae7;
+float: left;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+#text_box {
+width: 378px;
+height: 206px;
+padding: 10px;
+/*border-right: 1px solid #606060;
+border-left: 1px solid #606060;*/
+background-color: #ffffff;
+float: left;
+}
+
+#footer_box {
+width: 378px;
+padding: 5px 5px 5px 15px;
+/*border: 1px solid #606060; */
+background-color: #ffffff;
+float: left;
+}

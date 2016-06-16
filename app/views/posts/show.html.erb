@@ -1,0 +1,98 @@
+<%= stylesheet_link_tag "article.css" %>
+
+<p id="notice"><%= notice %></p>
+
+<div id="center_box">
+	
+	<% if @post.tjing %>
+		<div id="article_box" style="background-color: #949494;">
+	<% else %>
+		<div id="article_box">
+	<% end %>
+
+
+		<% if @post.tjing %>
+			<div id="picture_box" style="background-color: #949494;">
+		<% else %>
+			<div id="picture_box">
+		<% end %>
+			<a style="font-size: 24px;" class="w3-btn-floating" 				onclick="plusDivs(-1)">&#10094;&#8239;</a>
+			<% if @post.images.empty? %>
+				<%= image_tag("no_image.png", :alt => "No image available") %>
+			<% else %>
+				<% @post.images.each do |i| %>
+					<%= attachment_image_tag(i, :file, :limit, 338, 338, format: "jpg", 
+					:class => "mySlides") %>
+				<% end %>
+			<% end %>
+			<a style="font-size: 24px;" class="w3-btn-floating" 				onclick="plusDivs(+1)">&#8239;&#10095;</a>
+		</div>
+
+		<% if @post.tjing %>
+			<div id="title_box" style="background-color: #e5e5e5;">
+		<% else %>
+			<div id="title_box">
+		<% end %>
+			<h1><%= @post.title %></h1>
+		</div>
+
+		<% if @post.tjing %>
+			<div id="price_box" style="background-color: #e5e5e5;">
+		<% else %>
+			<div id="price_box">
+		<% end %>
+			<h1 class="price">$<%= @post.price %></h1>
+		</div>
+
+
+		<% if @post.tjing %>
+			<div id="text_box" style="background-color: #e5e5e5;">
+		<% else %>
+			<div id="text_box">
+		<% end %>
+			<p><%= simple_format(@post.body) %></p>
+		</div>
+
+
+		<% if @post.tjing %>
+			<div id="footer_box" style="background-color: #e5e5e5;">
+		<% else %>
+			<div id="footer_box">
+		<% end %>
+			<p class="footer">
+			<%= link_to 'Back', posts_path %> | 
+			<%= mail_to "ylvaemelia@gmail.com", "Contact", :subject => "Yard sale: " + @post.title %> | 
+			<% if @post.ikea_url == "IKEA" %>
+				<strike>IKEA</strike> | 
+			<% else %>
+				<%= link_to 'IKEA', @post.ikea_url, :target => '_blank'%> |
+			<% end %>
+			Tags:
+		 		<% @post.tags.each do |tag| %>
+				<%= link_to tag.name, tag_path(tag.name) %>
+				<% end %>
+			</p>
+		</div>
+
+</div>
+
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>

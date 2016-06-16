@@ -1,0 +1,132 @@
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-align: justify;
+}
+.footer{
+	font-size: 12px;
+}
+
+h1 {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 30px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	color: 	#606060;
+}
+	
+h2 {
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	font-size: 24px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	color: 	#606060;
+	margin-bottom: 0px;
+	margin-top: 10px;
+}
+.price { text-align: right; }
+
+
+a:link { 	color: 	#4c39a1;
+	text-decoration: none; 
+	font-weight: bold; }
+a:visited { 	color: 	#4c39a1;
+	text-decoration: none; 
+	font-weight: bold; }
+a:active { 	color: 	#4c39a1;
+	text-decoration: none; 
+	font-weight: bold; }
+a:hover { 	color: 	#4c39a1;
+	text-decoration: none; 
+	font-weight: bold; }
+
+body{
+background-color: #d1d7f2; /* e4d0f0 c8dae7*/
+}
+
+#center_box {
+	width: 707px;
+	margin: 20px auto 20px auto;
+	border-top: 10px solid #FFFFFF;
+	border-left: 10px solid #FFFFFF;
+	border-right: 10px solid #FFFFFF;
+}
+
+
+#header_box {
+	width: 685px;
+	height: 188px;
+	background-color: #E7E7E7;
+	padding: 0px 10px 0px 10px;
+	border: 1px solid #606060;
+	background-image: url("../images/header2.jpg");
+	background-size: 705px;
+}
+
+#intro_box {
+	width: 687px;
+	background-color: #eef0fb;
+	padding: 10px;
+	border-bottom: 1px solid #606060;
+}
+
+
+#article_box {
+width: 705px;
+height: 212px;
+padding: 1px;
+border-bottom: 1px solid #606060;
+background-color: #ffffff;
+clear: left;
+}
+
+
+#title_box {
+width: 250px;
+padding: 0px 10px;
+margin-top: 5px;
+/*border-top: 1px solid #606060;
+border-left: 1px solid #606060;*/
+background-color: #ffffff;
+float: left;
+}
+
+#price_box {
+width: 128px;
+padding: 0px 10px;
+margin-top: 5px;
+/*border-top: 1px solid #606060;
+border-right: 1px solid #606060;*/
+background-color: #ffffff;
+float: left;
+}
+
+#picture_box {
+width: 268px;
+height: 200px;
+margin: 5px;
+/*border: 1px solid #606060; */
+background-color: #ffffff;
+float: left;
+display: flex;
+align-items: center;
+justify-content: center 
+}
+
+#text_box {
+width: 398px;
+height: 122px;
+padding: 0px 10px 10px 10px;
+/*border-left: 1px solid #606060;
+border-right: 1px solid #606060;*/
+background-color: #ffffff;
+float: left;
+}
+
+#footer_box {
+width: 398px;
+padding: 0px 10px;
+/*border: 1px solid #606060;*/
+background-color: #ffffff;
+float: left;
+}
